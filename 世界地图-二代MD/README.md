@@ -12,9 +12,10 @@
 2. 缩减后对纹理颜色做了调整，原图南北极纹理是绿色的，与游戏显示不符做了调整，减少大片海域、陆地的纹理颜色以减少最终文件体积；
 3. 增加全港口、村落、及发现物所需最低友好度的标注。
 
-百度盘下载 [1rAZ5ONA0Ea4nJjvqYL88qg](https://pan.baidu.com/s/1rAZ5ONA0Ea4nJjvqYL88qg) 提取码: bjbw
-
 有多种格式，推荐 PDF，文字可搜索；webp 体积小；PNG 最通用。
+
+* 百度盘打包下载 [1Hpx7QU3yfSxuxjI5SxSNqw](https://pan.baidu.com/s/1Hpx7QU3yfSxuxjI5SxSNqw) 提取码:d99x
+* 百度盘拆分下载 [1rAZ5ONA0Ea4nJjvqYL88qg](https://pan.baidu.com/s/1rAZ5ONA0Ea4nJjvqYL88qg) 提取码: bjbw
 
 其他：
 
