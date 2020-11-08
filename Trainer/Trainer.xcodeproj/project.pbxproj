@@ -31,6 +31,7 @@
 		D5AC5F522553EBDD00A14D3C /* extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
 		D5AC5F532553EBDD00A14D3C /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		D5AC5F542553EBDD00A14D3C /* cheat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cheat.swift; sourceTree = "<group>"; };
+		D5AC5F5A2554E87B00A14D3C /* 🎯 install uw2md.command */ = {isa = PBXFileReference; lastKnownFileType = file; path = "🎯 install uw2md.command"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,8 +48,8 @@
 		D533AE452553A1D70075C5C8 = {
 			isa = PBXGroup;
 			children = (
-				D5AC5F472553EB9E00A14D3C /* uw2 */,
 				D533AE4F2553A1D70075C5C8 /* Products */,
+				D5AC5F472553EB9E00A14D3C /* uw2 */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +68,7 @@
 				D5AC5F522553EBDD00A14D3C /* extensions.swift */,
 				D5AC5F532553EBDD00A14D3C /* main.swift */,
 				D5AC5F512553EBDD00A14D3C /* objects.swift */,
+				D5AC5F5A2554E87B00A14D3C /* 🎯 install uw2md.command */,
 			);
 			path = uw2;
 			sourceTree = "<group>";
@@ -129,10 +131,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D5AC5F552553EBDD00A14D3C /* objects.swift in Sources */,
+				D5AC5F582553EBDD00A14D3C /* cheat.swift in Sources */,
 				D5AC5F562553EBDD00A14D3C /* extensions.swift in Sources */,
 				D5AC5F572553EBDD00A14D3C /* main.swift in Sources */,
-				D5AC5F582553EBDD00A14D3C /* cheat.swift in Sources */,
+				D5AC5F552553EBDD00A14D3C /* objects.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -262,6 +262,9 @@ class Command {
     修改舰队海上位置，例:
     cd 123,456
 
+  cdx 坐标
+    同 cd 命令，用我提供的地图上的像素坐标就行，不用转换
+
   repair
     维修全部船只
 
@@ -270,6 +273,9 @@ class Command {
 
   supply
     补充水粮，装火炮的船补充弹药
+
+来自:
+  https://github.com/BB9z/Uncharted-Waters
 """)
     }
 
@@ -309,6 +315,9 @@ class Command {
 
         case "cd":
             updateFleetLocation(argument: subArgument)
+
+        case "cdx":
+            cdx(argument: subArgument)
 
         case "supply":
             supply(argument: nil)
@@ -513,6 +522,15 @@ extension Command {
         updateFleetLocation(x: cdx, y: cdy, updateScreenLocation: true)
     }
 
+    func cdx(argument: String?) {
+        guard let cdStrings = argument?.split(separator: ","),
+              let cdx = Int(cdStrings[0]),
+              let cdy = Int(cdStrings[1]) else {
+            badArguments("坐标错误")
+        }
+        updateFleetLocation(x: cdx / 4, y: cdy / 4, updateScreenLocation: true)
+    }
+
     /// 更新舰队位置
     func updateFleetLocation(x: Int, y: Int, updateScreenLocation: Bool = false) {
         guard characterIndex >= 0 else {
@@ -534,7 +552,8 @@ extension Command {
         }
         if updateScreenLocation {
             let screenX = max(x - 15, 0)
-            let screenY = max(y - 14, 0)
+//            let screenY = max(y - 14, 0)
+            let screenY = y             // 不移动到最终位置，让屏幕移动以刷新，避免花屏
             try! file.seek(toOffset: Cheat.screenCoordinate.rawValue)
             let d0 = UInt8(truncatingIfNeeded: screenX >> 0)
             let d1 = UInt8(truncatingIfNeeded: screenX >> 8)
