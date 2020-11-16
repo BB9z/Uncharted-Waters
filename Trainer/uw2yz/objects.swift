@@ -228,8 +228,9 @@ struct Fleet: CustomStringConvertible, DataLoad {
         coordinate = Coordinate(x: Int(data[0]) + Int(data[1]) << 8, y: Int(data[2]) + Int(data[3]) << 8)
         direction = data[27]
         belong = Int(data[43])
-        ships = (0..<10).compactMap { idx -> Ship in
-            Ship(address: address + 44 + UInt64(Ship.dataLength) * UInt64(idx), file: file)
+        ships = (0..<10).compactMap { idx -> Ship? in
+            let aShip = Ship(address: address + 44 + UInt64(Ship.dataLength) * UInt64(idx), file: file)
+            return aShip.storeIndex == 0xFF ? nil : aShip
         }
     }
     static let dataLength = 144

@@ -17,17 +17,17 @@ enum Cheat: Address {
 
     /// 声望
     static func reputation(_ roleIdx: Int) -> Address {
-        Address(1588 + roleIdx * 14)
+        Address(1652)
     }
 
     /// 六国贡献
     static func contribution(_ roleIdx: Int) -> Address {
-        Address(1594 + roleIdx * 14)
+        Address(1658)
     }
 
     /// 爵位
     static func title(_ roleIdx: Int) -> Address {
-        Address(1600 + roleIdx * 14)
+        Address(1666)
     }
     static let titleList = ["平民", "士爵", "准勋爵士", "勋爵士", "准男爵", "男爵", "子爵", "伯爵", "侯爵", "公爵"]
 
@@ -299,9 +299,9 @@ enum Cheat: Address {
     /// 全舰队地址
     case fleetListBase = 9112
     /// 当前舰队
-    case fleet = 16194
+    case fleet = 2210
     /// 名下所有船只
-    case shipStore = 17694
+    case shipStore = 3878
 
     case portListBase = 19750
 
