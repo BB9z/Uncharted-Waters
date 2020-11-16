@@ -133,7 +133,7 @@ struct CharacterInfo: CustomStringConvertible, CustomDebugStringConvertible {
         combatLv = data[18]
         navigationExp = UInt16(data[21]) << 8 + UInt16(data[20])
         combatExp = UInt16(data[23]) << 8 + UInt16(data[22])
-        loyalty = data[23]
+        loyalty = data[24]
         age = data[25]
         role = data[Self.roleOffset]
         // 后四位是国籍，前四位作用未知

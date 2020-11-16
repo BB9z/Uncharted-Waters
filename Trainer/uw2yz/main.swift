@@ -53,10 +53,8 @@ class Command {
     }()
 
     lazy var employeeIDs: [Int] = {
-        var employeeIDs = file.readBytes(offset: Cheat.employees.rawValue, length: 30 + 2)!
+        var employeeIDs = file.readBytes(offset: Cheat.employees.rawValue, length: 30)!
         employeeIDs.exchangeHighLowBits()
-        _ = employeeIDs.popFirst()
-        _ = employeeIDs.popLast()
         return employeeIDs.map { Int($0) }
     }()
 
@@ -160,11 +158,9 @@ class Command {
 
     func logEmployees() {
         let salaries: [Int] = {
-            var data = file.readBytes(offset: Cheat.salaries.rawValue, length: 30 + 2)
+            var data = file.readBytes(offset: Cheat.salaries.rawValue, length: 30)
             data?.exchangeHighLowBits()
-            _ = data?.popFirst()
-            _ = data?.popLast()
-            return data?.map { Int($0) * 10 } ?? []
+            return data?.map { Int($0) * 100 } ?? []
         }()
         print("雇员:\n")
         for (eid, salary) in zip(employeeIDs, salaries) {

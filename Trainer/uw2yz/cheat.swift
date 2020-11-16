@@ -186,9 +186,9 @@ enum Cheat: Address {
     ]
 
     /// 手下列表
-    case employees = 6022
+    case employees = 2150
     /// 薪水列表
-    case salaries = 6052
+    case salaries = 2180
 
     /// 物品
     case items = 6082
