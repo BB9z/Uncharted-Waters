@@ -28,7 +28,9 @@ class Command {
     // MARK: - 状态
 
     private func loadCurrentCharacter() {
-        for (idx, cInfo) in zip(0..<6, characterList) {
+        let roleIDs = [0, 1, 2, 3, 4, 5, 125]
+        for idx in roleIDs {
+            let cInfo = characterList[idx]
             if cInfo.role == 1 {
                 characterIndex = idx
                 currentCharacter = cInfo
@@ -60,8 +62,8 @@ class Command {
 
     lazy var fleetList: [Fleet] = {
         let address = Cheat.fleetListBase.rawValue
-        // 同时存在 70 支舰队
-        return (0..<70).compactMap { i -> Fleet? in
+        // 同时存在 70 +10 +3 支舰队
+        return (0..<83).compactMap { i -> Fleet? in
             return Fleet(address: address + UInt64(Fleet.dataLength) * UInt64(i), file: file)
         }
     }()

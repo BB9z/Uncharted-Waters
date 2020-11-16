@@ -58,17 +58,17 @@ struct CharacterInfo: CustomStringConvertible, CustomDebugStringConvertible {
     var abilities: Data
     var luck: UInt8 {
         didSet {
-            raw[13] = luck
+            raw[16] = luck
         }
     }
     var navigationLv: UInt8 {
         didSet {
-            raw[16] = navigationLv
+            raw[19] = navigationLv
         }
     }
     var combatLv: UInt8 {
         didSet {
-            raw[15] = combatLv
+            raw[18] = combatLv
         }
     }
     let navigationExp: UInt16
@@ -82,7 +82,7 @@ struct CharacterInfo: CustomStringConvertible, CustomDebugStringConvertible {
     /// 忠诚
     var loyalty: UInt8 {
         didSet {
-            raw[21] = loyalty
+            raw[24] = loyalty
         }
     }
     /// 身份
@@ -108,8 +108,10 @@ struct CharacterInfo: CustomStringConvertible, CustomDebugStringConvertible {
             return "🇳🇱"
         case 6:
             return "🏴‍☠️"
+        case 7:
+            return "🇨🇳"
         default:
-            return "未知"
+            return "未知\(nationality)"
         }
     }
     /// 技能
@@ -118,25 +120,25 @@ struct CharacterInfo: CustomStringConvertible, CustomDebugStringConvertible {
     let address: Address
     var raw: Data
     static let dataLength = 32
-    static let roleOffset = 26
+    static let roleOffset = 29
 
     init(index: Int, address: Address, file: FileHandle) {
         let data = file.readBytes(offset: address, length: Self.dataLength)!
         self.address = address
         idx = index
         raw = data
-        abilities = data.subdata(in: Range(NSRange(location: 7, length: 8))!)
-        luck = data[13]
-        navigationLv = data[16]
-        combatLv = data[15]
-        navigationExp = UInt16(data[18]) << 8 + UInt16(data[17])
-        combatExp = UInt16(data[20]) << 8 + UInt16(data[19])
-        loyalty = data[21]
-        age = data[22]
+        abilities = data.subdata(in: Range(NSRange(location: 10, length: 8))!)
+        luck = data[16]
+        navigationLv = data[19]
+        combatLv = data[18]
+        navigationExp = UInt16(data[21]) << 8 + UInt16(data[20])
+        combatExp = UInt16(data[23]) << 8 + UInt16(data[22])
+        loyalty = data[23]
+        age = data[25]
         role = data[Self.roleOffset]
         // 后四位是国籍，前四位作用未知
-        nationality = data[27] & 0b00001111
-        skill = Skill(rawValue: data[28])
+        nationality = data[30] & 0b00001111
+        skill = Skill(rawValue: data[31])
     }
 
     var description: String {
