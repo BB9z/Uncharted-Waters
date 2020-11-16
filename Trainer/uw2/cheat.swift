@@ -381,8 +381,17 @@ enum Cheat: Address {
     ]
 
     static let portCoordinate = [
-        "阿姆斯特丹": Coordinate(x: 216, y: 248),
+        "里斯本": Coordinate(x: 120, y: 358),
         "塞维利亚": Coordinate(x: 142, y: 374),
+        "热那亚": Coordinate(x: 230, y: 320),
+        "伊斯坦布尔": Coordinate(x: 352, y: 344),
+        "伦敦": Coordinate(x: 180, y: 262),
+        "阿姆斯特丹": Coordinate(x: 216, y: 248),
+        "那不勒斯": Coordinate(x: 260, y: 350),
+        "那不勒斯2": Coordinate(x: 260, y: 348),
+        "威尼斯": Coordinate(x: 258, y: 318),
+        "马加里塔": Coordinate(x: 1922, y: 584),
+        "波鲁特内罗": Coordinate(x: 1826, y: 596),
     ]
 
     static let cargoList = [

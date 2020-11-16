@@ -98,7 +98,7 @@ class Command {
         } else if let name = Cheat.portList.element(at: portID) {
             print("当前位置: \(name)")
         } else {
-            print("某补给港")
+            print("某补给港 \(portID)")
         }
         logMyFleet()
         logEmployees()
