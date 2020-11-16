@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D55299BB2562ACAF00AD5496 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55299BA2562ACAF00AD5496 /* main.swift */; };
+		D55299C52562AD0800AD5496 /* cheat.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55299C22562AD0800AD5496 /* cheat.swift */; };
+		D55299C62562AD0800AD5496 /* objects.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55299C32562AD0800AD5496 /* objects.swift */; };
+		D55299C72562AD0800AD5496 /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55299C42562AD0800AD5496 /* extensions.swift */; };
 		D5AC5F552553EBDD00A14D3C /* objects.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AC5F512553EBDD00A14D3C /* objects.swift */; };
 		D5AC5F562553EBDD00A14D3C /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AC5F522553EBDD00A14D3C /* extensions.swift */; };
 		D5AC5F572553EBDD00A14D3C /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AC5F532553EBDD00A14D3C /* main.swift */; };
@@ -14,6 +18,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		D55299B62562ACAF00AD5496 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 		D5AC5F442553EB9E00A14D3C /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -26,15 +39,29 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D55299B82562ACAF00AD5496 /* uw2yz */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = uw2yz; sourceTree = BUILT_PRODUCTS_DIR; };
+		D55299BA2562ACAF00AD5496 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		D55299C12562ACEF00AD5496 /* 🎯 install uw2yz.command */ = {isa = PBXFileReference; lastKnownFileType = file; path = "🎯 install uw2yz.command"; sourceTree = SOURCE_ROOT; };
+		D55299C22562AD0800AD5496 /* cheat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cheat.swift; sourceTree = "<group>"; };
+		D55299C32562AD0800AD5496 /* objects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = objects.swift; sourceTree = "<group>"; };
+		D55299C42562AD0800AD5496 /* extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
+		D55299CA2562AD1B00AD5496 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D5AC5F462553EB9E00A14D3C /* uw2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = uw2; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5AC5F512553EBDD00A14D3C /* objects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = objects.swift; sourceTree = "<group>"; };
 		D5AC5F522553EBDD00A14D3C /* extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
 		D5AC5F532553EBDD00A14D3C /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		D5AC5F542553EBDD00A14D3C /* cheat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cheat.swift; sourceTree = "<group>"; };
-		D5AC5F5A2554E87B00A14D3C /* 🎯 install uw2md.command */ = {isa = PBXFileReference; lastKnownFileType = file; path = "🎯 install uw2md.command"; sourceTree = SOURCE_ROOT; };
+		D5AC5F5A2554E87B00A14D3C /* 🎯 install uw2md.command */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "🎯 install uw2md.command"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		D55299B52562ACAF00AD5496 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D5AC5F432553EB9E00A14D3C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -50,6 +77,8 @@
 			children = (
 				D533AE4F2553A1D70075C5C8 /* Products */,
 				D5AC5F472553EB9E00A14D3C /* uw2 */,
+				D55299B92562ACAF00AD5496 /* uw2yz */,
+				D55299CA2562AD1B00AD5496 /* README.md */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,8 +86,21 @@
 			isa = PBXGroup;
 			children = (
 				D5AC5F462553EB9E00A14D3C /* uw2 */,
+				D55299B82562ACAF00AD5496 /* uw2yz */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		D55299B92562ACAF00AD5496 /* uw2yz */ = {
+			isa = PBXGroup;
+			children = (
+				D55299C22562AD0800AD5496 /* cheat.swift */,
+				D55299C42562AD0800AD5496 /* extensions.swift */,
+				D55299BA2562ACAF00AD5496 /* main.swift */,
+				D55299C32562AD0800AD5496 /* objects.swift */,
+				D55299C12562ACEF00AD5496 /* 🎯 install uw2yz.command */,
+			);
+			path = uw2yz;
 			sourceTree = "<group>";
 		};
 		D5AC5F472553EB9E00A14D3C /* uw2 */ = {
@@ -76,6 +118,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		D55299B72562ACAF00AD5496 /* uw2yz */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D55299BE2562ACAF00AD5496 /* Build configuration list for PBXNativeTarget "uw2yz" */;
+			buildPhases = (
+				D55299B42562ACAF00AD5496 /* Sources */,
+				D55299B52562ACAF00AD5496 /* Frameworks */,
+				D55299B62562ACAF00AD5496 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = uw2yz;
+			productName = uw2yz;
+			productReference = D55299B82562ACAF00AD5496 /* uw2yz */;
+			productType = "com.apple.product-type.tool";
+		};
 		D5AC5F452553EB9E00A14D3C /* uw2 */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D5AC5F4A2553EB9E00A14D3C /* Build configuration list for PBXNativeTarget "uw2" */;
@@ -102,6 +161,9 @@
 				LastSwiftUpdateCheck = 1210;
 				LastUpgradeCheck = 1210;
 				TargetAttributes = {
+					D55299B72562ACAF00AD5496 = {
+						CreatedOnToolsVersion = 12.1;
+					};
 					D5AC5F452553EB9E00A14D3C = {
 						CreatedOnToolsVersion = 12.1;
 						LastSwiftMigration = 1210;
@@ -122,11 +184,23 @@
 			projectRoot = "";
 			targets = (
 				D5AC5F452553EB9E00A14D3C /* uw2 */,
+				D55299B72562ACAF00AD5496 /* uw2yz */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
+		D55299B42562ACAF00AD5496 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D55299C52562AD0800AD5496 /* cheat.swift in Sources */,
+				D55299C72562AD0800AD5496 /* extensions.swift in Sources */,
+				D55299BB2562ACAF00AD5496 /* main.swift in Sources */,
+				D55299C62562AD0800AD5496 /* objects.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D5AC5F422553EB9E00A14D3C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -256,6 +330,28 @@
 			};
 			name = Release;
 		};
+		D55299BC2562ACAF00AD5496 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y85RFN6NXZ;
+				ENABLE_HARDENED_RUNTIME = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		D55299BD2562ACAF00AD5496 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y85RFN6NXZ;
+				ENABLE_HARDENED_RUNTIME = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 		D5AC5F4B2553EB9E00A14D3C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -299,6 +395,15 @@
 			buildConfigurations = (
 				D533AE532553A1D70075C5C8 /* Debug */,
 				D533AE542553A1D70075C5C8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D55299BE2562ACAF00AD5496 /* Build configuration list for PBXNativeTarget "uw2yz" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D55299BC2562ACAF00AD5496 /* Debug */,
+				D55299BD2562ACAF00AD5496 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
