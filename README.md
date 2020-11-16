@@ -39,6 +39,7 @@ PC 版 Windows 上可以用 DOSBox 运行，但 macOS 上我没运行成功，�
 
 * [世界地图](世界地图-二代MD/README.md)
 * [港口布局图](港口布局图-二代PC/README.md)
+* [人物、港口、船只数据总览](https://www.icloud.com/numbers/06GmzZ-gHEAvoVU2IV0L67izA)
 
 ## 二代修改器
 
