@@ -185,19 +185,17 @@ class Command {
     // MARK: 其他
 
     func logItems() {
-        guard var items = file.readBytes(offset: Cheat.items.rawValue, length: 22) else {
+        guard var items = file.readBytes(offset: Cheat.items.rawValue, length: 80) else {
             print("❌ 物品读取失败")
             return
         }
         items.exchangeHighLowBits()
-        _ = items.popFirst()
-        _ = items.popLast()
         let list = Cheat.itemList
         let names = items.compactMap { bit -> String? in
             if bit == 0xFF {
                 return nil
             }
-            return list.element(at: Int(bit))
+            return list.element(at: Int(bit)) ?? "未知 \(bit)"
         }
         print("物品:\n\t\(names.joined(separator: ", "))")
     }
@@ -456,7 +454,7 @@ extension Command {
             let nameFormated = name.padding(toLength: 8, withPad: " ", startingAt: 0)
             var line = "  \(nameFormated)\t经济: \(port.commerceLv)\t工业: \(port.industryLv)\t\(port.supportDescription)"
             if port.commerceInvestment > 0 || port.industryInvestment > 0 {
-               line += " 投资: \(port.commerceInvestment), \(port.industryInvestment)"
+               line += " 投资: \(UInt32(port.commerceInvestment) * 100), \(UInt32(port.industryInvestment) * 100)"
             }
             print(line)
         }
@@ -467,9 +465,9 @@ extension Command {
             [Int](0x39...0x41),
             [Int](0x42...0x47),
             [Int](0x48...0x50),
-            [0x51, 0x52, 0x53, 0x55, 0x5C],
-            [0x54, 0x56, 0x57, 0x58, 0x59, 0x5B, 0x5D],
-            [Int](0x5E...0x63),
+            [0x51, 0x52, 0x53, 0x55, 0x5C, 0x6A, 0x6B],
+            [0x54, 0x56, 0x57, 0x58, 0x59, 0x5B, 0x5D, 0x60],
+            [0x5E, 0x5F, 0x61, 0x62, 0x63, 0x64, 0x65, 0x66, 0x67, 0x68, 0x69, 0x6C, 0x6D]
         ]
         let address = Cheat.portListBase.rawValue
         for (key, ids) in zip(sectionKeys, sectionValue) {

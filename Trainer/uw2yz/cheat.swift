@@ -191,7 +191,7 @@ enum Cheat: Address {
     case salaries = 2180
 
     /// 物品
-    case items = 6082
+    case items = 2070
 
     /// 物品列表，0xFF 无物品
     static let itemList = [
@@ -303,7 +303,7 @@ enum Cheat: Address {
     /// 名下所有船只
     case shipStore = 3878
 
-    case portListBase = 19750
+    case portListBase = 4908
 
     /// 港口列表
     static let portList = [
@@ -395,16 +395,16 @@ enum Cheat: Address {
         "果阿",        // 55
         "马六甲",      // 56
         "德那第",      // 57
-        "班达",        // 58
+        "曼谷",        // 58
         "帝汶",        // 59
         "帕塞",        // 5A
         "巽他",        // 5B
         "卡利卡特",    // 5C
-        "邦加",        // 5D
+        "波罗乃",      // 5D
         "泉州",        // 5E
-        "澳门",        // 5F
-        "河内",        // 60
-        "长安",        // 61
+        "广州",        // 5F
+        "东关",        // 60
+        "洛阳",        // 61
         "界",          // 62
         "长崎",        // 63
         "应天",        // 64
