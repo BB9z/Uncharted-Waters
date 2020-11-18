@@ -141,8 +141,9 @@ class Command {
             let status = ShipStatus(address: address, file: file)
             return status.captainID == 0xFF ? nil : status
         }
-        return zip(mFleet.ships, shipStatus).map { (ship, status) in
-            MyShip(ship: ship, status: status, spec: shipSpecs[Int(ship.storeIndex)], captain: characterList.element(at: status.captainID)!)
+        return zip(mFleet.ships, shipStatus).compactMap { (ship, status) in
+            let spec = shipSpecs[Int(ship.storeIndex)]
+            return MyShip(ship: ship, status: status, spec: spec, captain: characterList.element(at: status.captainID)!)
         }
     }()
 
@@ -219,6 +220,8 @@ class Command {
         let commandName = (CommandLine.arguments.first as NSString?)?.lastPathComponent ?? ""
         print("\(commandName) file 命令 [参数]\n")
         print("""
+⚠️ 只适用于意志加强版 1.9E3
+
 命令:
 
   info

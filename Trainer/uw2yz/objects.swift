@@ -230,7 +230,7 @@ struct Fleet: CustomStringConvertible, DataLoad {
         belong = Int(data[43])
         ships = (0..<10).compactMap { idx -> Ship? in
             let aShip = Ship(address: address + 44 + UInt64(Ship.dataLength) * UInt64(idx), file: file)
-            return aShip.storeIndex == 0xFF ? nil : aShip
+            return aShip.propulsion == 0xFF ? nil : aShip
         }
     }
     static let dataLength = 144
