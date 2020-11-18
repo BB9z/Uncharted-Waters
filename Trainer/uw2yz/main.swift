@@ -28,13 +28,23 @@ class Command {
     // MARK: - 状态
 
     private func loadCurrentCharacter() {
-        let roleIDs = [0, 1, 2, 3, 4, 5, 125]
+        let roleIDs = [0, 1, 2, 3, 4, 5]
         for idx in roleIDs {
             let cInfo = characterList[idx]
             if cInfo.role == 1 {
                 characterIndex = idx
                 currentCharacter = cInfo
-                break
+                return
+            }
+        }
+        // 外传或大明人物，根据副手判定
+        // key 副手，value 主角
+        let assistants = [0x83: 0x7D, 0x85: 0x7E]
+        for (assistant, role) in assistants {
+            if characterList[assistant].role != 1 {
+                characterIndex = role
+                currentCharacter = characterList[role]
+                return
             }
         }
     }
