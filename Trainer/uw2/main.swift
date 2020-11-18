@@ -96,7 +96,8 @@ class Command {
         if portID == 0xFF {
             print("当前位置: 海上")
         } else if let name = Cheat.portList.element(at: portID) {
-            print("当前位置: \(name)")
+            let port = Port(address: Cheat.portListBase.rawValue + UInt64(Port.dataLength) * UInt64(portID), file: file)
+            print("当前位置: \(name) \(port.supportDescription)")
         } else {
             print("某补给港 \(portID)")
         }
@@ -113,9 +114,9 @@ class Command {
         print(cInfo.description)
 
         let reputationBase = Cheat.reputation(characterIndex)
-        if let reputation1 = file.readInt16(offset: reputationBase),
-           let reputation2 = file.readInt16(offset: reputationBase + 2),
-           let reputation3 = file.readInt16(offset: reputationBase + 4) {
+        if let reputation1 = file.readInt16(offset: reputationBase)?.uint16,
+           let reputation2 = file.readInt16(offset: reputationBase + 2)?.uint16,
+           let reputation3 = file.readInt16(offset: reputationBase + 4)?.uint16 {
             print("声望: 经商 \(reputation1), 海盗 \(reputation2), 冒险 \(reputation3)")
         }
         if var contribution = file.readBytes(offset: Cheat.contribution(characterIndex), length: 6) {
