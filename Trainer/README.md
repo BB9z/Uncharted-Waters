@@ -46,6 +46,6 @@ uw2 "~/Library/Application Support/OpenEmu/Save States/Genesis/大航海时代�
 
 ## 意志加强版修改器
 
-不会做完整了，可用的功能：
+1.9E3 对金钱、人物状态、随身物、船的部分状态做了反作弊。
 
-* 
+不会做完整了，较原版大部分功能可用，特别加入了 whosyourdaddy 练海战级别用。

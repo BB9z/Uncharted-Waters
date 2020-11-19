@@ -281,9 +281,17 @@ struct Ship: DataLoad {
     }
     let hpMax: UInt8
     /// 推进
-    let propulsion: UInt8
+    var propulsion: UInt8 {
+        didSet {
+            raw[4] = propulsion
+        }
+    }
     /// 转向
-    let steering: UInt8
+    var steering: UInt8 {
+        didSet {
+            raw[5] = steering
+        }
+    }
     /// 归属船序号
     let storeIndex: UInt8
     let cannonCount: UInt8

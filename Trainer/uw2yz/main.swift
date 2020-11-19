@@ -237,11 +237,6 @@ class Command {
   info
     查看存档信息
 
-  money [金币数]
-    修改金钱，例:
-    money
-    money 20000
-
   luck [数值]
     修改幸运度, 例:
     luck 100
@@ -281,8 +276,8 @@ class Command {
   freshSailor
     船队水手补满，并回复健康状态
 
-  supply
-    补充水粮，装火炮的船补充弹药
+  whosyourdaddy
+    把与自舰队同坐标下的其他船的水手修改为 1
 
 来自:
   https://github.com/BB9z/Uncharted-Waters
@@ -295,9 +290,6 @@ class Command {
         switch subCommand {
         case "info":
             log()
-
-        case "money":
-            giveMoney(argument: subArgument)
 
         case "luck":
             luck(argument: subArgument)
@@ -329,11 +321,11 @@ class Command {
         case "cdx":
             cdx(argument: subArgument)
 
-        case "supply":
-            supply(argument: nil)
-
         case "hire":
             hire(argument: subArgument)
+
+        case "whosyourdaddy":
+            whosyourdaddy(argument: subArgument)
 
         case "dump":
             dumpAll()
@@ -358,22 +350,6 @@ class Command {
 // MARK: - Interface
 
 extension Command {
-
-    func giveMoney(argument: String?) {
-        var count: UInt32?
-        if let input = argument {
-            guard let countIn = Int(input), countIn > 0 else {
-                badArguments("金币数量非法")
-            }
-            count = UInt32(clamping: countIn)
-        } else {
-            count = nil
-        }
-        let current = UInt32(clamping: file.readInt32(offset: Cheat.money.rawValue)!)
-        let toCount: UInt32 = count != nil ? count! : (current < 3000) ? 10000 : current * 2
-        print("金币修改 \(current) => \(toCount)")
-        file.write(Data(uint32: toCount), address: Cheat.money.rawValue)
-    }
 
     func luck(argument: String?) {
         guard let input = argument else {
@@ -580,6 +556,14 @@ extension Command {
             if ship.hpCurrent < ship.hpMax {
                 print("\(info.type) 已维修 \(ship.hpCurrent) => \(ship.hpMax)")
                 ship.hpCurrent = ship.hpMax
+                if ship.steering < 50 {
+                    ship.steering = 50
+                    print("转向维修")
+                }
+                if ship.propulsion < 50 {
+                    ship.propulsion = 50
+                    print("推进维修")
+                }
                 file.write(ship.raw, address: ship.address)
                 countRepaired += 1
             }
@@ -611,37 +595,26 @@ extension Command {
         }
     }
 
-    func supply(argument: String?) {
+    func whosyourdaddy(argument: String?) {
+        guard let mFleet = fleet else {
+            print("自舰队不存在")
+            exit(EXIT_SUCCESS)
+        }
+        let coordinate = mFleet.coordinate
         var count = 0
-        myShips.forEach { info in
-            let spec = info.spec
-            var status = info.status
-            let cannonballTarget = UInt16(spec.cannonCount / 10)
-            let foodCount = (spec.volume - cannonballTarget) / 2 * 10
-            if status.cannonball >= cannonballTarget,
-               status.food >= foodCount,
-               status.water >= foodCount {
-                return
+        fleetList.filter { $0.coordinate == coordinate }.forEach { aFleet in
+            guard aFleet.belong != characterIndex else { return }
+            let who = Cheat.characterList.element(at: aFleet.belong) ?? "?"
+            print("将 \(who) 的舰队水手清除")
+            aFleet.ships.forEach { aShip in
+                var ship = aShip
+                ship.sailorCount = 1
+                file.write(ship.raw, address: ship.address)
             }
-            print("\(info.type):")
-            if status.water < foodCount {
-                print("  补充水分 \(status.food / 10) => \(foodCount / 10)")
-                status.water = foodCount
-            }
-            if status.food < foodCount {
-                print("  补充粮食 \(status.food / 10) => \(foodCount / 10)")
-                status.food = foodCount
-            }
-            if status.cannonball < cannonballTarget {
-                print("  补充弹药 \(status.cannonball) => \(cannonballTarget)")
-                status.cannonball = cannonballTarget
-            }
-            print("")
-            file.write(status.raw, address: status.address)
             count += 1
         }
         if count == 0 {
-            print("目前补给充分")
+            print("没有其他舰队在我们周围")
         }
     }
 
