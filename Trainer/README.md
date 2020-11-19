@@ -2,11 +2,9 @@
 
 ## 二代修改器
 
-只支持 macOS，仅限 OpenEmu 的存档进行修改，游戏版本意志的纯汉化及原版可用，意志加强版用另外的。
+只支持 macOS，仅限 OpenEmu 的存档进行修改，游戏版本意志的纯汉化及原版可用，意志加强版用下面的。
 
-下载：
-
-* 百度盘 [1OMgDmirKnPR6Wv2Bi5OEfQ](https://pan.baidu.com/s/1OMgDmirKnPR6Wv2Bi5OEfQ) 提取码：b7wb
+[百度盘下载](https://pan.baidu.com/s/1k5jdIIcIv4Md7U48WKx7TA)，提取码: f2x8。`uw2` 是原版的命令，`uw2yz` 是意志加强版的命令。
 
 功能：
 
